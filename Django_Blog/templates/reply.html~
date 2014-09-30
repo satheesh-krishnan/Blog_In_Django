@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+<body style="background-color:#FFCCE5">
+<form action="" method="post" name="blo">
+{% csrf_token %}
+<div class="text-right">
+<div class="text-primary">
+<p style="padding-top:10px;padding-right:85px"><input name='home' type='submit' value='home'>
+<input name='logout' type='submit' value='logout'></p>
+</div></div>
+<div class="text-center">
+<h1 style="color:#00c">{{b.post}}</h1>
+</div>
+<br><br>
+{% for each in k %}
+<p style="padding-left:100px">{{each}}</p>
+{% endfor %}
+<div class="text-success">
+<br><br>
+<h4>COMMENTS</h4>
+</div>
+{% for j,each in z %}
+<div style="border:1px solid #888;">
+{% for i in each %}
+<p>{{i}}  </p>
+{% endfor %}
+<p>{{j.date}}</p>
+<p style="color:#06c"><a href="{% url 'blog:dele' j.post context %}">delete</a></p>
+</div>
+{% endfor %}
+<div class="text-success">
+<h4>Reply</h4>
+</div>
+<p>{{f.rly}}</p>
+
+<p style="color:#06c"><input name='submit' type='submit' value='submit'></p>
+</form>
+</body>
+</html>

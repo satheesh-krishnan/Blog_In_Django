@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+<link href="{{ STATIC_URL }}django_facebook/css/facebook.css" type="text/css" rel="stylesheet" media="all" />
+{% include 'django_facebook/_facebook_js.html' %}
+
+<title>BLOG</title>
+
+</head>
+<body>
+<form action="{% url 'facebook_connect' %}?facebook_login=1" method="post">
+    <input type="hidden" value="{{ request.path }}" name="next" />
+    <input type="hidden" value="{{ request.path }}" name="register_next" />
+    <input type="hidden" value="{{ request.path }}" name="error_next" />
+    {% csrf_token %}
+    <input onclick="F.connect(this.parentNode); return false;" type="image" src="{{ STATIC_URL }}django_facebook/images/facebook_login.png" />
+</form>
+<form action="" method="post" name="logi">
+{% csrf_token %}
+<div class="text-primary">
+<div class="text-right">
+<p style="padding-top:10px;padding-right:85px">{{fb.sear}}<input name='search' type="submit" value="search"></p></div></div>
+<div class="container">
+<div class="text-success">
+<div class="text-center">
+<h1 style="padding-top:70px;font-size:100px"><em>BLOGGIN</h1>
+<h3>SHARE YOUR BLOGS</h3></em>
+</div></div></div>
+
+<div class="text-center">
+<p style="size:30px"><input name="signup" type="submit" value="signup" class="btn btn-primary btn-lg"></p>
+</div> 
+<body style="background-color:#FFCCE5">
+<div class="container">
+
+
+<div class="text-right">
+<div class="text-primary">
+<p>Already a Member?</p>
+
+<p>EMAILID {{f.logi}}</p>
+<p>PASSWORD {{f.passw}}</p>
+<p><input name='login' type='submit' value='login'></p>
+</div>
+<div class="text-dander">
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+</div></div></div>
+</body>

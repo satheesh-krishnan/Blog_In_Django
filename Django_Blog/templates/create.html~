@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<form action="" method="post" name="post">
+{% csrf_token %}
+<body style="background-color:#FFCCE5">
+<div class="text-right">
+<div class="text-primary">
+<p style="padding-top:10px;padding-right:85px"><input name='add' type='submit' value='home'> &nbsp&nbsp&nbsp<input name='add' type='submit' value='logout'></p>
+</div></div>
+
+<div class="text-primary">
+<p>BLOG NAME{{f.head}} &nbsp&nbsp&nbsp<input name='add' type='submit' value='publish'>&nbsp&nbsp&nbsp<input name='add' type='submit' value='save'> &nbsp&nbsp&nbsp <input name='add' type='submit' value='refresh'>  </p>
+</div>
+{{f.body}}
+
+
+</body>

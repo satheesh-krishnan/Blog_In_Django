@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+<div class="container">
+<div class="text-center">
+
+</head>
+<body>
+<body style="background-color:#FFCCE5">
+<div class="text-primary">
+<form action="" method="post" name="loginn">
+{% csrf_token %}
+<div class="text-right">
+<p style="padding-top:10px"><input name='home' type='submit' value='home'></p>
+</div>
+<div class="text-success">
+<h2 style="padding-top:80px">SIGNUP</h2>
+</div>
+<p style="padding-top:40px">NAME &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{f.name}}</p>
+<p style="padding-top:10px">EMAILID &nbsp&nbsp&nbsp&nbsp{{f.l}}</p>
+<p style="padding-top:10px">PASSWORD{{f.p}}</p>
+
+<p><input name='signup' type='submit' value='signup'></p>
+</div>
+<div class="text-success">
+
+{% if messages %}
+{% for message in messages %}
+{{message}}
+{% endfor %}
+{% endif %}
+</div></div></div>
+</form>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+<body style="background-color:#FFCCE5">
+<form action="" method="post" name="logi">
+{% csrf_token %}
+<div class="text-right">
+<div class="text-primary">
+
+<p style="padding-top:10px;padding-right:85px"><input name='logout' type='submit' value='logout'></p>
+</div></div>
+<div class="text-center">
+<div class="text-success">
+
+<h2>Welcome {{nam}}</h2>
+</div>
+<br>
+<p><input class="btn btn-primary btn-lg" name='create' type="submit" value='create'></p>
+</div>
+<div class="text-right">
+<div class="text-primary">
+<p style="padding-right:85px">{{f.sear}}<input name='search' type="submit" value='search'></p>
+</div></div>
+<div class="text-success">
+<div class="text-center">
+
+<h3>Previous Posts</h3>
+</div>
+<table align="center">
+<tr><td><h4>Name &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4></td><td><h4>Date &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h4></td><td><h4>Status</h4><td></td><td></td></tr>
+</div>
+{% for each in upost %}
+<tr><td style="color:#06c">{{each.post}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td style="color:#06c">{{each.date}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td style="color:#06c">{{each.status}} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td style="color:#06c"><a href="{% url 'blog:create' each.id %}">edit</a> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</td><td style="color:#06c"><a href="{% url 'blog:reply' each.id %}">view</a></td></tr>
+{% endfor %}
+</div>
+</table>
+</form>
+</body>
+</html>

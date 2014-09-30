@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/css/bootstrap.min.css">
+<div class="container">
+<div class="text-success">
+<div class="text-center">
+<h3 style="font-size:35px">SEARCH RESULTS</h3></div></div></div>
+</head>
+<body>
+<body style="background-color:#FFCCE5">
+<form action="" method="post" name="search">
+{% csrf_token %}
+<br>
+{% for each,i in z %}
+
+<div style="border:1px solid #000;">
+<p>
+<h4 style="font-size:25px;color:#00C">{{each.post}}</h4>
+
+<p>{{i}}</p>
+
+<p style="color:#06c">Posted By &nbsp{{each.name}} &nbsp&nbsp&nbsp Date {{each.date}}</p>
+
+<a href="{% url 'blog:blog' each.id %}">Read More</a>
+
+</div>
+
+{% endfor %}
+</form> 
+
+{% if messages %}
+{% for message in messages %}
+<div class="text-center">
+<div class="text-danger">
+<p style="font-size:25px">{{message}}</p>
+</div></div>
+{% endfor %}
+{% endif %}
+
+
+</body>
+</html>
